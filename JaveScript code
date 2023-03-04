@@ -1,0 +1,32 @@
+function battle( player1, player2 ) {
+  let smallerArray = Math.min(player1.length, player2.length);
+  let longerArray = Math.max(player1.length, player2.length);
+  
+  let powerAndToughnessOfTheSurvivingCreatures = {
+    'player1': [],
+    'player2': [],
+  };
+  
+  for ( let i = 0; i < smallerArray; i++ ) {
+    if ( player1[i][1] > player2[i][0] ) {
+      powerAndToughnessOfTheSurvivingCreatures['player1'].push( player1[i] );
+    } 
+    
+    if ( player2[i][1] > player1[i][0] ) {
+      powerAndToughnessOfTheSurvivingCreatures['player2'].push( player2[i] );
+    }
+  }
+  
+    let negativeNumber = smallerArray - longerArray;
+    let positiveNumber = longerArray - smallerArray;  
+  
+  for (let j = smallerArray; j < longerArray; j++) {
+    if ( player1.length > player2.length) {
+      powerAndToughnessOfTheSurvivingCreatures['player1'].push(player1[j]);
+    } else {
+        powerAndToughnessOfTheSurvivingCreatures['player2'].push(player2[j]);
+    }
+  }
+  
+  return powerAndToughnessOfTheSurvivingCreatures;
+}
